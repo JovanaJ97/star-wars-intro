@@ -1,0 +1,62 @@
+* {
+	box-sizing: border-box;
+}
+
+body,
+html {
+	width: 100%;
+	height: 100%;
+	font-size: 100%;
+	overflow: hidden;
+}
+
+body {
+	@include flexCenter;
+
+	flex-direction: column;
+	margin: 0;
+	font-family: $outlinedFontSF;
+	background-color: $black;
+	color: $yellow;
+	padding: 0 2.5rem;
+	position: relative;
+}
+
+button {
+	font-family: inherit;
+	font-size: 2rem;
+	color: inherit;
+	background-color: transparent;
+	border: none;
+	border: 1px solid $yellow;
+	padding: 1rem 2rem;
+	cursor: pointer;
+	box-shadow: 0 0 10px $yellow;
+	transition: box-shadow 0.5s ease;
+
+	&:hover {
+		box-shadow: 0 0 20px $yellow;
+	}
+
+	&#start-btn {
+		&.start-remove {
+			display: none;
+		}
+	}
+
+	&#replay-btn {
+		display: none;
+		position: relative;
+		z-index: 5;
+
+		&.replay-show {
+			display: block;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	body {
+		padding: 0 1.25rem;
+	}
+}

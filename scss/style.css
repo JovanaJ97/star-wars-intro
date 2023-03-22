@@ -1,0 +1,229 @@
+@font-face {
+  font-family: "SF Distant Galaxy AltOutline";
+  src: url("../fonts/SFDistantGalaxyAltOutline.woff2") format("woff2"), url("../fonts/SFDistantGalaxyAltOutline.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SF Distant Galaxy";
+  src: url("../fonts/SFDistantGalaxy.woff2") format("woff2"), url("../fonts/SFDistantGalaxy.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Franklin Gothic Light SSi";
+  src: url("../fonts/FranklinGothicLightSSiLight.woff2") format("woff2"), url("../fonts/FranklinGothicLightSSiLight.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  font-family: "SF Distant Galaxy AltOutline", sans-serif;
+  background-color: #000;
+  color: #ffe81f;
+  padding: 0 2.5rem;
+  position: relative;
+}
+
+button {
+  font-family: inherit;
+  font-size: 2rem;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  border: 1px solid #ffe81f;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ffe81f;
+  transition: box-shadow 0.5s ease;
+}
+button:hover {
+  box-shadow: 0 0 20px #ffe81f;
+}
+button#start-btn.start-remove {
+  display: none;
+}
+button#replay-btn {
+  display: none;
+  position: relative;
+  z-index: 5;
+}
+button#replay-btn.replay-show {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 1.25rem;
+  }
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  height: 100vh;
+}
+.wrapper.wrapper-visible {
+  display: flex;
+}
+
+@keyframes stars {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.white-dot {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  z-index: -1;
+  animation: stars ease backwards;
+}
+
+@keyframes blueText {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes logoAnimation {
+  0% {
+    transform: scale(10);
+  }
+  100% {
+    transform: scale(0.1) translate3d(0, 0, -250px);
+    opacity: 0;
+  }
+}
+@keyframes movingText {
+  0% {
+    transform: rotateX(21deg) translate3d(0, 100rem, 0);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(21deg) translate3d(0, -150rem, 0);
+    opacity: 0;
+  }
+}
+.blue-text {
+  width: 100%;
+  font-family: "Franklin Gothic Light SSi", sans-serif;
+  color: #1d58b0;
+  font-size: 4rem;
+  font-weight: 400;
+  visibility: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.blue-text.text-visible {
+  visibility: visible;
+  animation: blueText 6s ease forwards;
+}
+
+.logo {
+  font-size: 10rem;
+  text-align: center;
+  visibility: hidden;
+  position: absolute;
+}
+.logo.logo-visible {
+  visibility: visible;
+  animation: logoAnimation 10s ease forwards;
+}
+
+.text-wrap {
+  max-width: 30%;
+  margin: 0 auto;
+  perspective: 380px;
+  perspective-origin: bottom;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.text-wrap .inside-wrap {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+}
+.text-wrap .inside-wrap.moving-visible {
+  visibility: visible;
+  animation: movingText 90s ease forwards;
+}
+.text-wrap h2,
+.text-wrap h3,
+.text-wrap p {
+  font-family: "Franklin Gothic Light SSi", sans-serif;
+  font-size: 1.2rem;
+  line-height: 3rem;
+}
+.text-wrap p {
+  text-align: justify;
+}
+.text-wrap h2,
+.text-wrap h3 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .blue-text {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 525px) {
+  .blue-text {
+    font-size: 1.4rem;
+  }
+  .text-wrap {
+    max-width: 100%;
+  }
+  .text-wrap .inside-wrap {
+    left: 5%;
+    right: 5%;
+  }
+  button {
+    font-size: 1.2rem;
+  }
+}/*# sourceMappingURL=style.css.map */
